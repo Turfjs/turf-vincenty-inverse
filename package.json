@@ -1,0 +1,30 @@
+{
+  "name": "turf-vincenty-inverse",
+  "version": "1.0.0",
+  "description": "turf vincenty inverse module",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jrzimmerman/turf-vincenty-inverse.git"
+  },
+  "keywords": [
+    "turf",
+    "vincenty",
+    "inverse",
+    "miles",
+    "km"
+  ],
+  "author": "jrzimmerman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jrzimmerman/turf-vincenty-inverse/issues"
+  },
+  "homepage": "https://github.com/jrzimmerman/turf-vincenty-inverse",
+  "devDependencies": {
+    "benchmark": "^1.0.0",
+    "tape": "^3.0.3"
+  }
+}
