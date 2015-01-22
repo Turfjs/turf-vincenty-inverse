@@ -1,6 +1,8 @@
 //http://en.wikipedia.org/wiki/Vincenty%27s_formulae
 //https://gist.github.com/mathiasbynens/354587
 
+var point = require('turf-point');
+
 function vincentyInverse(x1, y1, x2, y2) {
  var a = 6378137,
      b = 6356752.3142,
