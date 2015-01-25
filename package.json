@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jrzimmerman/turf-vincenty-inverse.git"
+    "url": "https://github.com/Turfjs/turf-vincenty-inverse.git"
   },
   "keywords": [
     "turf",
@@ -21,9 +21,9 @@
   "author": "jrzimmerman",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jrzimmerman/turf-vincenty-inverse/issues"
+    "url": "https://github.com/Turfjs/turf-vincenty-inverse/issues"
   },
-  "homepage": "https://github.com/jrzimmerman/turf-vincenty-inverse",
+  "homepage": "https://github.com/Turfjs/turf-vincenty-inverse",
   "devDependencies": {
     "benchmark": "^1.0.0",
     "tape": "^3.0.3",
