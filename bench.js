@@ -11,10 +11,10 @@ var pt2 = {
   "geometry": {"type": "Point", "coordinates": [-75.534, 39.123]}
 };
 
-var suite = new Benchmark.Suite('turf-distance');
+var suite = new Benchmark.Suite('turf-vincenty-inverse');
 suite
-  .add('turf-distance',function () {
-    distance(pt1, pt2);
+  .add('turf-vincenty-inverse',function () {
+    distance(pt1, pt2, 'miles');
   })
   .on('cycle', function (event) {
     console.log(String(event.target));
