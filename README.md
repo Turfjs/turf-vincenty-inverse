@@ -1,20 +1,21 @@
 # turf-vincenty-inverse
 
-[![Build Status](https://travis-ci.org/turfjs/turf-vincenty-inverse.svg?branch=master)](https://travis-ci.org/turfjs/turf-vincenty-inverse)
+[![Build Status](https://travis-ci.org/Turfjs/turf-vincenty-inverse.svg?branch=master)](https://travis-ci.org/Turfjs/turf-vincenty-inverse)
 
 turf distance module
 
 
-### `turf.vincenty-inverse(from, to)`
+### `turf.vincenty-inverse(from, to, units)`
 
 Vincenty's inverse formula computes the geographical distance and direction between two given points.
 
 ### Parameters
 
-| parameter            | type   | description                                               |
-| -------------------- | ------ | --------------------------------------------------------- |
-| `from`               | Point  | origin point                                              |
-| `to`                 | Point  | destination point                                         |
+| parameter            | type               | description                                               |
+| -------------------- | ------------------ | --------------------------------------------------------- |
+| `from`               | Feature\.\<Point\> | origin point                                              |
+| `to`                 | Feature\.\<Point\> | destination point                                         |
+| `[units=kilometers]` | String             | _optional:_ can be degrees, radians, miles, or kilometers |
 
 
 ### Example

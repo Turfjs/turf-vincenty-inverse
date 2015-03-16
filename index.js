@@ -1,13 +1,37 @@
+var invariant = require('turf-invariant');
 //http://en.wikipedia.org/wiki/Vincenty%27s_formulae
 //https://gist.github.com/mathiasbynens/354587
 
-module.exports = function(point1, point2) {
+module.exports = function(point1, point2, units) {
+ invariant.featureOf(point1, 'Point', 'distance');
+ invariant.featureOf(point2, 'Point', 'distance');
  var coordinates1 = point1.geometry.coordinates;
  var coordinates2 = point2.geometry.coordinates;
 
- var a = 6378137,
-     b = 6356752.3142,
-     f = 1 / 298.257223563, // WGS-84 ellipsoid params
+ var R;
+  switch(units){
+    case 'miles':
+      R = 3960;
+      break;
+    case 'kilometers':
+      R = 6373;
+      break;
+    case 'degrees':
+      R = 57.2957795;
+      break;
+    case 'radians':
+      R = 1;
+      break;
+    case undefined:
+      R = 6373;
+      break;
+    default:
+      throw new Error('unknown option given to "units"');
+  }
+
+ var a = 6378137, // length of semi-major axis of the ellipsoid (radius at equator);  (6378137.0 metres in WGS-84)
+     b = 6356752.3142, // length of semi-minor axis of the ellipsoid (radius at the poles); (6356752.314245 meters in WGS-84)
+     f = 1 / 298.257223563, // flattening of the ellipsoid; (1/298.257223563 in WGS-84)
      L = toRad(coordinates2[0]-coordinates1[0]),
      U1 = Math.atan((1 - f) * Math.tan(toRad(coordinates1[1]))),
      U2 = Math.atan((1 - f) * Math.tan(toRad(coordinates2[1]))),
@@ -47,7 +71,8 @@ module.exports = function(point1, point2) {
      B = uSq / 1024 * (256 + uSq * (-128 + uSq * (74 - 47 * uSq))),
      deltaSigma = B * sinSigma * (cos2SigmaM + B / 4 * (cosSigma * (-1 + 2 * cos2SigmaM * cos2SigmaM) - B / 6 * cos2SigmaM * (-3 + 4 * sinSigma * sinSigma) * (-3 + 4 * cos2SigmaM * cos2SigmaM))),
      s = b * A * (sigma - deltaSigma);
- return s.toFixed(3); // round to 1mm precision
+     distance = s * R; // unit conversion
+ return distance.toFixed(3); // round to 1mm precision
 };
 function toRad(degree) {
  return degree * Math.PI / 180;
