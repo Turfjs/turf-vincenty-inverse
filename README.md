@@ -21,17 +21,38 @@ Vincenty's inverse formula computes the geographical distance and direction betw
 ### Example
 
 ```js
-var point1 = turf.point([-75.343, 39.984]);
-var point2 = turf.point([-75.534, 39.123]);
+var point1 = {
+  "type": "Feature",
+  "properties": {},
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-75.343, 39.984]
+  }
+};
+var point2 = {
+  "type": "Feature",
+  "properties": {},
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-75.534, 39.123]
+  }
+};
+var units = "miles";
 
-var points = turf.featurecollection([point1, point2]);
+var points = {
+  "type": "FeatureCollection",
+  "features": [point1, point2]
+};
 
 //=points
 
-var distance = turf.vincenty-inverse(point1, point2);
+var distance = turf.vincenty-inverse(point1, point2, units);
 
 //=distance
 ```
+
+
+**Returns** `Number`, distance between the two points
 
 ## Installation
 
