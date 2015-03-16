@@ -72,7 +72,7 @@ module.exports = function(point1, point2, units) {
      deltaSigma = B * sinSigma * (cos2SigmaM + B / 4 * (cosSigma * (-1 + 2 * cos2SigmaM * cos2SigmaM) - B / 6 * cos2SigmaM * (-3 + 4 * sinSigma * sinSigma) * (-3 + 4 * cos2SigmaM * cos2SigmaM))),
      s = b * A * (sigma - deltaSigma);
      distance = s * R; // unit conversion
- return distance.toFixed(3); // round to 1mm precision
+ return distance;
 };
 function toRad(degree) {
  return degree * Math.PI / 180;
