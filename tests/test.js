@@ -1,5 +1,5 @@
 var test = require('tape');
-var distance = require('./');
+var distance = require('../');
 
 test('distance', function(t){
   var pt1 = {
